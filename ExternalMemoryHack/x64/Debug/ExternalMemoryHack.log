@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\FlowUp\source\repos\ExternalMemoryHack\ExternalMemoryHack\main.cpp(78,21): warning C4311: 'cast de type' : troncation de pointeur de 'HMODULE' à 'DWORD'
+C:\Users\FlowUp\source\repos\ExternalMemoryHack\ExternalMemoryHack\main.cpp(78,21): warning C4302: 'cast de type' : troncation de 'HMODULE' à 'DWORD'
+  ExternalMemoryHack.vcxproj -> C:\Users\FlowUp\source\repos\ExternalMemoryHack\x64\Debug\ExternalMemoryHack.exe
