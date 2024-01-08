@@ -17,7 +17,7 @@ DWORD GetProcessIdFromWindow(HWND hwnd) {
 void ListModules(DWORD processId) {
     HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, processId);
     if (snapshot == INVALID_HANDLE_VALUE) {
-        std::cerr << "Erreur lors de la création du cliché des modules" << std::endl;
+        std::cerr << "Erreur lors de la crï¿½ation du clichï¿½ des modules" << std::endl;
         return;
     }
 
@@ -47,10 +47,10 @@ BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
         DWORD processId = GetProcessIdFromWindow(hwnd);
         ListModules(processId);
 
-        return FALSE; // Arrêter l'énumération car vous avez trouvé la fenêtre
+        return FALSE; // Arrï¿½ter l'ï¿½numï¿½ration car vous avez trouvï¿½ la fenï¿½tre
     }
 
-    return TRUE; // Continuer l'énumération
+    return TRUE; // Continuer l'ï¿½numï¿½ration
 }
 
 
@@ -79,12 +79,10 @@ int main(int argc, char** argv) {
 
     // Adresse de base de "UnityPlayer.dll"
     uintptr_t gold_address = 0;
-    
-    std::vector<DWORD> offsets = { 0x110, 0xC0, 0x1C8, 0x1B0, 0xB0, 0x1F4 };
-    
-    SIZE_T gold_value = 0;
-    SIZE_T test = 0;
 
+    std::vector<DWORD> offsets = { 0x110, 0xC0, 0x1C8, 0x1B0, 0xB0, 0x1F4 };
+
+    SIZE_T gold_value = 0;
     SIZE_T bytes_readValue = 0;
 
     ReadProcessMemory(lethal_company_process, (LPCVOID)(unityAddress + 0x01BE9D00), &gold_value, sizeof(gold_value), &bytes_readValue);
