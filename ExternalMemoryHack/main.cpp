@@ -78,12 +78,11 @@ int main(int argc, char** argv) {
     DWORD dllBase = (DWORD)GetModuleHandle(L"UnityPlayer.dll");
 
     // Adresse de base de "UnityPlayer.dll"
-    uintptr_t base_address = 0x1F82003FB60; // Remplacez par l'adresse de base réelle
     uintptr_t gold_address = 0;
     
     std::vector<DWORD> offsets = { 0x110, 0xC0, 0x1C8, 0x1B0, 0xB0, 0x1F4 };
     
-    SIZE_T gold_value = base_address;
+    SIZE_T gold_value = 0;
     SIZE_T test = 0;
 
     SIZE_T bytes_readValue = 0;
@@ -99,9 +98,10 @@ int main(int argc, char** argv) {
     cout << "Montant Actuel: " << gold_value << endl;
 
     DWORD new_gold_value = 0;
+    SIZE_T bytes_written = 0;
+
     cout << "Choisir un montant: ";
     cin >> new_gold_value;
-    SIZE_T bytes_written = 0;
 
     if (gold_address != 0) {
         WriteProcessMemory(lethal_company_process, (LPVOID)gold_address, &new_gold_value, sizeof(new_gold_value), &bytes_written);
